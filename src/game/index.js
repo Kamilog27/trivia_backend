@@ -3,9 +3,9 @@ const { getSingleTriviaQuestions, verifyAnswer, updatePlayerScore } = require(".
 const router = new express.Router()
 const verifyToken = require("../middleware/auth")
 
-router.get("/questions/single", verifyToken, (req, res) => {
+router.get("/questions/single", verifyToken, async (req, res) => {
     try{
-    const question = getSingleTriviaQuestions()
+    const question = await getSingleTriviaQuestions()
     res.status(200).send({ data: { question }, status: true, message: "Consulta exitosa" })
     }catch(error){
         res.status(500).send({ data: {  }, status: false, message: "Error en la consulta" })
