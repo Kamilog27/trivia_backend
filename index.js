@@ -12,7 +12,7 @@ app.use(express.json())//que el servidor acepte peticiones JSON
 app.use(cors())
 app.use(gameRouter)
 app.use(playerRouter)
-app.listen(port,()=>{
+app.listen(process.env.PORT || port,()=>{
     console.log("Servidor inciado en el puerto: ", port);
 })
 
